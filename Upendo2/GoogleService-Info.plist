@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>51807634709-e0c0cr8pi21ujdkvd3tmc95vsu1pf43k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.51807634709-e0c0cr8pi21ujdkvd3tmc95vsu1pf43k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAKA2R3QQ3yLjacHxXFN7inYy92mbIMOKA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>51807634709</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.Upendo2</string>
+	<key>PROJECT_ID</key>
+	<string>upendo-b7333</string>
+	<key>STORAGE_BUCKET</key>
+	<string>upendo-b7333.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:51807634709:ios:4b08cd946918d4b6</string>
+	<key>DATABASE_URL</key>
+	<string>https://upendo-b7333.firebaseio.com</string>
+</dict>
+</plist>
