@@ -11,6 +11,8 @@ import Foundation
 
 class ProfileVC: UIViewController {
     
+    var theImagePassed = UIImage();
+    
     @IBOutlet weak var profileImgView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
