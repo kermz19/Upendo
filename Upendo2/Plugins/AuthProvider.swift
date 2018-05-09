@@ -91,6 +91,7 @@ class AuthProvider{
         return Auth.auth().currentUser!.uid;
     }
     
+    
     private func handleErrors(err: NSError, loginHandler: LoginHandler?){
         
         if let errCode = AuthErrorCode(rawValue: err.code){

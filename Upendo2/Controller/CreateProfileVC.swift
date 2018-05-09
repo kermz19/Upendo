@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 var name = "";
 var education = "";
@@ -15,6 +16,8 @@ var generation = "";
 var bio = "";
 
 class CreateProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    let imagePicker = UIImagePickerController();
     let PROFILE_SEGUE = "ProfileSegue";
     
     
@@ -30,13 +33,19 @@ class CreateProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        dismiss(animated: true, completion: nil);
         // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            
+            var data = Data();
+            data = UIImageJPEGRepresentation(selectedImage, 0.8)!;
+            let imageRef = Storage.storage().reference().child("images/")
+            
+        }else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
         // Set photoImageView to display the selected image.
-        photoImageView.image = selectedImage
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
@@ -44,10 +53,10 @@ class CreateProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController();
-        
-        imagePickerController.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false;
+        imagePicker.sourceType = .photoLibrary
 
-        imagePickerController.delegate = self as UIImagePickerControllerDelegate as? UIImagePickerControllerDelegate & UINavigationControllerDelegate;
+//        imagePickerController.delegate = self as UIImagePickerControllerDelegate as? UIImagePickerControllerDelegate & UINavigationControllerDelegate;
         present(imagePickerController, animated: true, completion: nil);
     }
     
@@ -67,6 +76,8 @@ class CreateProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self;
         
         self.view.backgroundColor = UIColor.lightGray;
         self.view.tintColor = UIColor.blue;

@@ -81,7 +81,7 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate, UIImagePickerC
         if senderId == self.senderId {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
         }else{
-            return bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.blue)
+            return bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.lightGray)
         }
     }
     
@@ -155,7 +155,7 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate, UIImagePickerC
             
             do{
                 // tries to set data to type of mediaURL
-                let data = try Data(contentsOf: mediaURL);
+                let data = try Data(contentsOf: mediaURL)
                 
                 if let _ = UIImage(data: data) {
                     let _ = SDWebImageDownloader.shared().downloadImage(with: mediaURL, options: [], progress: nil, completed: { (image, data, error, finished) in

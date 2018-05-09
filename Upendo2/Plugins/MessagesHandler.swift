@@ -12,6 +12,7 @@ import FirebaseStorage
 
 protocol MessageReceivedDelegate: class {
     func messageReceived(senderID: String, text: String);
+    func mediaReceived(senderID: String, senderName: String, url: String)
     
 }
 
@@ -85,7 +86,15 @@ class MessagesHandler {
         // mediaMessagesRef is where we get the data from
         // .observe acts as a listener
         DBProvider.Instance.mediaMessagesRef.observe(DataEventType.childAdded) { (snapshot: DataSnapshot) in
-            
+            if let data = snapshot.value as? NSDictionary {
+                if let senderID = data[Constants.SENDER_ID] as? String {
+                    if let senderName = data[Constants.SENDER_NAME] as? String{
+                    if let url = data[Constants.URL] as? String {
+                        self.delegate?.mediaReceived(senderID: senderID,senderName: senderName, url: url )
+                        }
+                    }
+                }
+            }
             
         }    }
 }// class
